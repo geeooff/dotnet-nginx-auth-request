@@ -1,0 +1,31 @@
+﻿@model LoginViewModel
+
+@if (SignInManager.IsSignedIn(User))
+{
+	ViewData["Title"] = "Log out";
+
+	var user = await UserManager.GetUserAsync(User);
+
+	<form id="auth-logout" asp-action="Logout" method="post">
+		<button type="submit">Log out (@user.UserName)</button>
+	</form>
+}
+else
+{
+	ViewData["Title"] = "Log in";
+
+	<form id="auth-login" asp-route-then="@ViewData["then"]" method="post">
+		<div asp-validation-summary="All" class="al-errors"></div>
+		<div class="al-username">
+			<label asp-for="Username"></label>
+			<input asp-for="Username" required />
+			<span asp-validation-for="Username" class="al-username-error"></span>
+		</div>
+		<div class="al-password">
+			<label asp-for="Password"></label>
+			<input asp-for="Password" required />
+			<span asp-validation-for="Password" class="al-password-error"></span>
+		</div>
+		<button type="submit">Log in</button>
+	</form>
+}
