@@ -14,10 +14,10 @@ namespace App
 	{
 		public static void Main(string[] args)
 		{
-			BuildWebHost(args).Run();
+			CreateWebWebHostBuilder(args).Build().Run();
 		}
 
-		public static IWebHost BuildWebHost(string[] args) =>
+		public static IWebHostBuilder CreateWebWebHostBuilder(string[] args) =>
 			WebHost.CreateDefaultBuilder(args)
 				.UseKestrel(options =>
 				{
@@ -27,7 +27,6 @@ namespace App
 				{
 					options.AddJsonFile("seeddata.json", optional: true, reloadOnChange: false);
 				})
-				.UseStartup<Startup>()
-				.Build();
+				.UseStartup<Startup>();
 	}
 }
