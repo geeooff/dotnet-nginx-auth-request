@@ -3,9 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<base href="@AppOptions.BasePath">
 	<title>Auth - @ViewData["Title"]</title>
-	<link rel="stylesheet" href="~/auth-assets/css/app.css">
-	<script src="~/auth-assets/js/app.js"></script>
+	<environment exclude="Development">
+		<link rel="stylesheet" href="~@(AppOptions.BasePath)/css/app.min.css" asp-append-version="true">
+		<script src="~@(AppOptions.BasePath)/js/app.min.js" asp-append-version="true"></script>
+	</environment>
+	<environment include="Development">
+		<link rel="stylesheet" href="~@(AppOptions.BasePath)/css/app.css" asp-append-version="true">
+		<script src="~@(AppOptions.BasePath)/js/app.js" asp-append-version="true"></script>
+	</environment>
 </head>
 <body>
 	<h1>@ViewData["Title"]</h1>

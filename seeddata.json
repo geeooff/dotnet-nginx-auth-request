@@ -1,25 +1,27 @@
 ﻿{
-	"SeedData": {
-		"IsEnabled": true,
-		"Roles": [
-			"Admin",
-			"Guest"
-		],
-		"Users": [
-			{
-				"Name": "admin",
-				"Password": "admin",
-				"Roles": [
-					"Admin"
-				]
-			},
-			{
-				"Name": "guest",
-				"Password": "guest",
-				"Roles": [
-					"Guest"
-				]
-			}
-		]
+	"App": {
+		"SeedData": {
+			"IsEnabled": true,
+			"Roles": [
+				"Admin",
+				"Guest"
+			],
+			"Users": [
+				{
+					"Name": "admin",
+					"Password": "admin",
+					"Roles": [
+						"Admin"
+					]
+				},
+				{
+					"Name": "guest",
+					"Password": "guest",
+					"Roles": [
+						"Guest"
+					]
+				}
+			]
+		}
 	}
 }
