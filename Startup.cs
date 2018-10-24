@@ -11,6 +11,7 @@ using App.Models;
 using App.Controllers;
 using App.Extensions;
 using App.Options;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace App
 {
@@ -88,7 +89,10 @@ namespace App
 				app.UseExceptionHandler($"{_appOptions.BasePath}/error");
 			}
 
-			app.UseHttpsRedirection();
+			app.UseForwardedHeaders(new ForwardedHeadersOptions
+			{
+				ForwardedHeaders = ForwardedHeaders.All
+			});
 
 			app.UseStaticFiles($"{_appOptions.BasePath}");
 
