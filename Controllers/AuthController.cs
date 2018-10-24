@@ -86,10 +86,8 @@ namespace App.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> Login(string then = null)
+		public IActionResult Login(string then = null)
 		{
-			//await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-
 			ViewData["then"] = then;
 
 			return View();
