@@ -53,7 +53,7 @@ namespace App.Controllers
 
 				if (user == null || await _userManager.IsLockedOutAsync(user))
 				{
-					_logger.LogWarning($"{_loggerPrefix}Authentication failure: user is unknown or locked out");
+					_logger.LogWarning($"{_loggerPrefix}Authorization failure: user is unknown or locked out");
 
 					await HttpContext.SignOutAsync();
 
@@ -61,6 +61,8 @@ namespace App.Controllers
 				}
 				else if (!string.IsNullOrWhiteSpace(role) && !await _userManager.IsInRoleAsync(user, role))
 				{
+					_logger.LogWarning($"{_loggerPrefix}Authorization failure: user is not member of {role} role");
+
 					return Forbid();
 				}
 				else
