@@ -67,6 +67,11 @@ namespace App.Controllers
 				{
 					_logger.LogTrace($"{_loggerPrefix}Authentication success");
 
+					var roles = await _userManager.GetRolesAsync(user);
+
+					Response.Headers["X-Forwarded-User"] = user.UserName;
+					Response.Headers["X-Forwarded-Roles"] = string.Join(",", roles);
+
 					return Ok();
 				}
 			}
