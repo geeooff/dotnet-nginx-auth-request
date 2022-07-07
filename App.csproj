@@ -12,7 +12,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Aguacongas.Identity.Redis" Version="1.1.1" />
-		<PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.5" />
+		<PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.15" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" PrivateAssets="All" />
 	</ItemGroup>
 
